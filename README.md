@@ -6,7 +6,7 @@ $ npm install # or pnpm install or yarn install
 
 ## Доступные скирипты
 
-в дириктории прокекта вы можете:
+в дириктории проекта вы можете:
 
 ### `yarn dev`, `yarn start`, `yarn tunnel`, `yarn codegen` или `yarn codegen:wath`
 
