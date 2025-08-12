@@ -10,7 +10,7 @@ $ npm install # or pnpm install or yarn install
 
 ### `yarn dev`, `yarn start`, `yarn tunnel`, `yarn codegen` или `yarn codegen:wath`
 
-Для просмотра в dev режиме открыть [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Для просмотра в dev режиме открыть [http://localhost:3000](http://localhost:3000).
 Должна стоять в .env `VITE_DEBUG_VK_QUERY` которую можно взять при запуске прижожения из ВК в теге iframe
 
 ### Создание тунеля для дебага в vk
