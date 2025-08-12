@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  exclude: rootscrollgutter;
+}
+@plugin '@tailwindcss/typography';
+
+/* @plugin "daisyui/theme" {
+  name: "test";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #f7f2ee;
+  --color-base-200: #eee6dd;
+  --color-base-300: #e6d9cb;
+  --color-base-content: #35444c;
+  --color-primary: oklch(62% 0.214 259.815);
+  --color-primary-content: oklch(97% 0.014 343.198);
+  --color-secondary: oklch(52% 0.223 3.958);
+  --color-secondary-content: oklch(97% 0.014 343.198);
+  --color-accent: #d96e48;
+  --color-accent-content: oklch(98% 0.018 155.826);
+  --color-neutral: oklch(51% 0.096 186.391);
+  --color-neutral-content: oklch(97% 0.014 308.299);
+  --color-info: #5fb0b7;
+  --color-info-content: oklch(28% 0.091 267.935);
+  --color-success: #6b8e23;
+  --color-success-content: oklch(21% 0.006 285.885);
+  --color-warning: #ff8c42;
+  --color-warning-content: oklch(28% 0.066 53.813);
+  --color-error: #d56356;
+  --color-error-content: oklch(21% 0.006 56.043);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+} */
+
+@plugin "daisyui/theme" {
+  name: "test";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #f7f2ee;
+  --color-base-200: #eee6dd;
+  --color-base-300: #e6d9cb;
+  --color-base-content: #35444c;
+  --color-accent: oklch(62% 0.214 259.815);
+  --color-accent-content: oklch(97% 0.014 343.198);
+  --color-secondary: oklch(52% 0.223 3.958);
+  --color-secondary-content: oklch(97% 0.014 343.198);
+  --color-primary: #d96e48;
+  --color-primary-content: oklch(98% 0.018 155.826);
+  --color-neutral: oklch(77.2% 0.06 84.7);
+  --color-neutral-content: oklch(97% 0.014 308.299);
+  --color-info: #5fb0b7;
+  --color-info-content: oklch(28% 0.091 267.935);
+  --color-success: #6b8e23;
+  --color-success-content: oklch(21% 0.006 285.885);
+  --color-warning: #ff8c42;
+  --color-warning-content: oklch(28% 0.066 53.813);
+  --color-error: #d56356;
+  --color-error-content: oklch(21% 0.006 56.043);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1.2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@layer utilities {
+  .hide-spin-buttons {
+    -moz-appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+.input:focus {
+  @apply border-primary ring-1 ring-primary outline-none;
+}
+
+@theme {
+  --color-tx-primary: #35444c;
+  --color-tx-primary2: #595959;
+  --color-tx-secondary: #212b2f;
+  --color-tx-secondary2: #5c6d76;
+
+  --animate-overlayShow: overlayShow 300ms ease;
+  --animate-overlayHide: overlayHide 250ms ease 100ms forwards;
+  --animate-contentShow: contentShow 300ms ease-out;
+  --animate-contentHide: contentHide 300ms ease-in forwards;
+
+  @keyframes overlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes overlayHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes contentShow {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* Начальное смещение вниз */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Конечное положение */
+    }
+  }
+
+  @keyframes contentHide {
+    from {
+      opacity: 1;
+      transform: translateY(0); /* Начальное положение */
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px); /* Смещение вниз при исчезании */
+    }
+  }
+}
+
+body {
+  margin: 0;
+  /*
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; 
+    */
+  font-family: "Ubuntu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-base-200 w-full h-screen overflow-y-auto;
+}
+html {
+  /* @apply bg-amber-600; */
+}
+
+/*
+ code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} 
+*/
+
+/* 
+.markdown-content {
+  ul {
+    @apply list-disc pl-6;
+  }
+
+  ol {
+    @apply list-decimal pl-6;
+  }
+
+  blockquote {
+    @apply border-l-4 border-base-300 pl-4 italic;
+  }
+
+  table {
+    @apply w-full border-collapse;
+
+    th,
+    td {
+      @apply border border-base-300 px-4 py-2;
+    }
+
+    th {
+      @apply bg-base-200 text-left;
+    }
+  }
+
+  pre {
+    @apply bg-base-200 p-4 rounded-lg overflow-x-auto;
+
+    code {
+      @apply bg-transparent p-0;
+    }
+  }
+} 
+*/
